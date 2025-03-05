@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Canvas Assignment</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+
+        <style type="text/css">
+            #paint_canvas {
+                background-color: silver;
+            }
+        </style>
+        <script src="js/script.js"></script>
+    </head>
+
+    <body>
+        <h1>Paint App</h1>
+
+        <div>
+            <input type="button" value="line" />
+            <input type="button" value="rectangle" id="rect"/>
+            <input type="color" value="#000000" id="colour"/>
+            <input type="number" value="5" min="1" id="width"/>
+        </div>
+
+        <canvas id="paint_canvas" width="600" height="600"></canvas>
+    </body>
+</html>
