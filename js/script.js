@@ -1,4 +1,6 @@
 class Line {
+    shape = "line";
+
     constructor(x0, y0, x1, y1, colour, thickness) {
         this.x0 = x0;
         this.y0 = y0;
@@ -26,6 +28,8 @@ class Line {
 }
 
 class Rectangle {
+    shape = "rect";
+
     constructor(x0, y0, x1, y1, colour, line_width) {
         this.x0 = x0;
         this.y0 = y0;
@@ -54,9 +58,9 @@ class Stroke {
 
 
 window.addEventListener("load", function (event) {
+    //this.localStorage.clear();
     let c = document.getElementById("paint_canvas");
     let ctx = c.getContext("2d");
-
     const LINE = 0, RECT = 1;
     is_selected = 0;
 
@@ -74,6 +78,17 @@ window.addEventListener("load", function (event) {
     let clear_input = document.getElementById("clear");
 
     let x_down, y_down, x_up, y_up;
+
+    //load canvas from localStorage
+
+    if (localStorage["onPage"])
+    {
+        //console.log(JSON.parse(localStorage["onPage"]));
+        //onPage = JSON.parse(localStorage["onPage"]);
+        //console.log(onPage);
+        refresh_local(); 
+    }
+
 
     // signify that the RECT tool is selected 
     rect_button.addEventListener("click", function (event) {
@@ -94,12 +109,13 @@ window.addEventListener("load", function (event) {
 
     undo_input.addEventListener("click", function (event) {
         onPage.pop();
-        console.log(onPage);
+        update_local(); 
         refresh_screen();
     });
 
     clear_input.addEventListener("click", function (event) {
         onPage = [];
+        update_local(); 
         clear_screen();
     });
 
@@ -122,6 +138,9 @@ window.addEventListener("load", function (event) {
         }
         onPage.push(obj);
 
+        update_local();
+        //console.log(JSON.stringify(onPage));
+        //console.log(JSON.parse(JSON.stringify(onPage)));
 
         refresh_screen();
     });
@@ -133,8 +152,32 @@ window.addEventListener("load", function (event) {
         }
     }
 
+    function refresh_local() {
+        clear_screen(); 
+        onPage = []; 
+        let obj; 
+
+        for (let i of JSON.parse(localStorage["onPage"]))
+        {
+            //console.log(i); COOOOL
+            if (i.shape == "line")
+            {
+                onPage.push(new Line(i.x0, i.y0, i.x1, i.y1, i.colour, i.thickness)); 
+            }
+            else if(i.shape == "rect") {
+                onPage.push(new Rectangle(i.x0, i.y0, i.x1, i.y1, i.colour, i.line_width)); 
+            }
+        }
+
+        refresh_screen(); 
+    }
+
     function clear_screen() {
         ctx.clearRect(0, 0, c.width, c.height);
+    }
+
+    function update_local() {
+        localStorage["onPage"] = JSON.stringify(onPage);
     }
 
 
