@@ -145,6 +145,8 @@ window.addEventListener("load", function (event) {
     let undo_input = document.getElementById("undo");
     let clear_input = document.getElementById("clear");
 
+    let warning_node = document.getElementById("warning");
+
     let x_down, y_down, x_up, y_up, x_drag, y_drag;
     let drag = false, new_obj = true, left_screen = false;
 
@@ -283,6 +285,14 @@ window.addEventListener("load", function (event) {
             refresh_screen();
         }
         left_screen = true;
+
+        warning_node.style.display = "inline";
+        console.log("bye");
+    });
+
+    c.addEventListener("mouseover", function(event) {
+        warning_node.style.display = "none";
+        console.log("hi");
     });
 
 

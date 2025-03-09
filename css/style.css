@@ -15,6 +15,16 @@ p {
     padding:10px;
 }
 
+#warning {
+    display:inline;
+    color: red;
+    background-color:#dbefbc;
+    margin:10px;
+    border-radius: 5px;
+
+    display:none;
+}
+
 #paint_canvas {
     background-color: rgb(218, 218, 218);
     margin: 0;
