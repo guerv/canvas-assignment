@@ -5,29 +5,56 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
 
-        <style type="text/css">
-            #paint_canvas {
-                background-color: silver;
-            }
-        </style>
+        <style type="text/css"></style>
+        <link rel="stylesheet" href="css/style.css" />
         <script src="js/script.js"></script>
     </head>
 
     <body>
-        <h1>Paint App</h1>
+        <div id="container">
+            <h1>Paint!</h1>
 
-        <div>
-            <input type="button" value="undo" id="undo" />
-            <input type="button" value="clear" id="clear" />
+            <div id="bar">
+                <div class="align">
+                    <input
+                        type="image"
+                        src="images/undo.png"
+                        alt="undo"
+                        id="undo"
+                    />
+                    <input type="button" value="CLEAR" id="clear" />
+                </div>
+
+                <div class="align">
+                    <input type="image" src="images/line.png" id="line" />
+                    <input
+                        type="image"
+                        src="images/rect.png"
+                        alt="rectangle"
+                        id="rect"
+                    />
+                    <input
+                        type="image"
+                        src="images/circ.png"
+                        alt="circle"
+                        id="circle"
+                    />
+                    <input type="color" value="#00FF00" id="colour" />
+
+
+                    <input
+                        type="range"
+                        id="thickness"
+                        name="thickness"
+                        min="1"
+                        max="50"
+                        value="2"
+                    />
+                    <span id="thickness_value">2</span>
+                </div>
+            </div>
+
+            <canvas id="paint_canvas" width="500" height="500"></canvas>
         </div>
-
-        <div>
-            <input type="button" value="line" id="line"/>
-            <input type="button" value="rectangle" id="rect"/>
-            <input type="color" value="#000000" id="colour"/>
-            <input type="number" value="5" min="1" id="width"/>
-        </div>
-
-        <canvas id="paint_canvas" width="600" height="600"></canvas>
     </body>
 </html>
