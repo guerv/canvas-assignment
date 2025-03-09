@@ -291,7 +291,7 @@ window.addEventListener("load", function (event) {
     });
 
     c.addEventListener("mouseover", function(event) {
-        arning_node.style.visibility= "hidden";
+        warning_node.style.visibility= "hidden";
         console.log("hi");
     });
 
