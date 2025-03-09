@@ -22,7 +22,7 @@ p {
     margin:10px;
     border-radius: 5px;
 
-    display:none;
+    visibility:hidden;
 }
 
 #paint_canvas {

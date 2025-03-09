@@ -286,12 +286,12 @@ window.addEventListener("load", function (event) {
         }
         left_screen = true;
 
-        warning_node.style.display = "inline";
+        warning_node.style.visibility= "visible";
         console.log("bye");
     });
 
     c.addEventListener("mouseover", function(event) {
-        warning_node.style.display = "none";
+        arning_node.style.visibility= "hidden";
         console.log("hi");
     });
 
