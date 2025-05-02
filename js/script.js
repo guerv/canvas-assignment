@@ -1,9 +1,4 @@
 /**
- * Author: Natalia Guevara
- * Student Number: 400570316
- * Class: CS 1XD3
- * Date Created: 1 March 2025
- * Date Last Modified: 9 March 2025
  * Description: JavaScript file for Canvas Assignment. Includes DOM manipulation, obj of arrays, local storage.
  */
 
